@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+</head>
+<body>
+<h1>login</h1>
+<form method="post" style="width:50%; margin-left: 10px">
+    <div class="form-group">
+        <input type="text" name="username" class="form-control" placeholder="username"><br>
+        <input type="text" name="password" class="form-control" placeholder="password"><br>
+
+    </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+    <p class="{{category}}">{{ message }} </p>
+    {% endfor %}
+    {% endwith %}
+
+    <button type="submit" class="btn btn-primary">Log in</button>
+</form>
+<br>
+<a href="{{url_for('signup')}}">Don't have an account? sign up</a>
+</body>
+</html>
